@@ -70,9 +70,7 @@ symlink_dotfiles() {
       execute "ln -fs $sourceFile $targetFile" "$targetFile → $sourceFile"
     elif [ "$(readlink "$targetFile")" == "$sourceFile" ]; then
       print_success "$targetFile → $sourceFile"
-      echo "in here"
     else
-      echo "confirmation"
       ask_for_confirmation "'$targetFile' already exists, do you want to overwrite it?"
       if answer_is_yes; then
         rm -rf "$targetFile"
