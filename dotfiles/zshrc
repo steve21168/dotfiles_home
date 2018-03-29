@@ -1,4 +1,4 @@
-export ZSH=/Users/stevegoodstein/.oh-my-zsh
+export ZSH=/Users/$(whoami)/.oh-my-zsh
 
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="fishy"
@@ -51,7 +51,6 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
-
 # fpath=(/usr/local/share/zsh-completions $fpath)
 
 # Use kube aliases
@@ -62,3 +61,5 @@ export PATH=$PATH:/Users/stevegoodstein/Documents/google-cloud-sdk/bin
 
 # General Aliases
 alias dt="cd ~/Desktop"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

@@ -1,32 +1,23 @@
 set nocompatible              " be iMproved, required
-filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
+call plug#begin('~/.vim/plugged')
 
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'git://git.wincent.com/command-t.git'
-Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'git://git.wincent.com/command-t.git'
+Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
 
-Plugin 'elixir-editors/vim-elixir'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-call vundle#end()            " required
+Plug 'elixir-editors/vim-elixir'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'scrooloose/nerdtree'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
-filetype plugin indent on    " required
+call plug#end()
 
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
+
+
 
 " Basic Settings "
 syntax on
@@ -42,7 +33,22 @@ set softtabstop=2 " Set equal to tabspot
 " Themes "
 let g:airline_theme='simple'
 colorscheme molokai
-
 " Key Mappings "
 :imap jj <ESC>
+" Quickly insert an empty new line without entering insert mode
+nnoremap <Leader>o o<Esc>
+nnoremap <Leader>O O<Esc>
 
+"Switching between tabs
+nnoremap nt :tabnext<CR>
+nnoremap pt :tabnext<CR>
+nnoremap ct  :tabclose<CR>
+
+map <C-n> :NERDTreeToggle<CR>
+map <C-t> :FZF<CR>
+
+
+
+" Show space, eol and tab characters
+set listchars=space:.,eol:¬,tab:>·
+set list
