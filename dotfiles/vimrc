@@ -13,6 +13,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdtree'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'tpope/vim-commentary'
 
 call plug#end()
 
@@ -50,5 +51,5 @@ map <C-t> :FZF<CR>
 
 
 " Show space, eol and tab characters
-set listchars=space:.,eol:¬,tab:>·
-set list
+" set listchars=space:.,eol:¬,tab:>·
+" set list
