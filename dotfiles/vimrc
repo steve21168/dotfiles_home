@@ -4,13 +4,10 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
-Plug 'git://git.wincent.com/command-t.git'
-Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
-
-Plug 'elixir-editors/vim-elixir'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdtree'
+Plug 'mileszs/ack.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-commentary'
@@ -21,9 +18,12 @@ call plug#end()
 
 
 " Basic Settings "
+set encoding=utf-8
 syntax on
 set number
 :set noshowmode
+
+let mapleader = " "
 
 " Tabs and Spaces "
 set expandtab " Make tabs indent with spaces
@@ -34,22 +34,48 @@ set softtabstop=2 " Set equal to tabspot
 " Themes "
 let g:airline_theme='simple'
 colorscheme molokai
+
 " Key Mappings "
 :imap jj <ESC>
 " Quickly insert an empty new line without entering insert mode
 nnoremap <Leader>o o<Esc>
 nnoremap <Leader>O O<Esc>
 
-"Switching between tabs
-nnoremap nt :tabnext<CR>
-nnoremap pt :tabnext<CR>
-nnoremap ct  :tabclose<CR>
-
 map <C-n> :NERDTreeToggle<CR>
 map <C-t> :FZF<CR>
 
 
+let g:airline_powerline_fonts = 1
+" Show buffers
+let g:airline#extensions#tabline#enabled = 1
+" Show just the filename
+let g:airline#extensions#tabline#fnamemod = ':t'
 
+" Buffer remaps
+set hidden " Allows to move between buffers while editing
+nmap <leader>n :bnext<CR>
+nmap <leader>p :bprevious<CR>
+nmap <leader>bl :ls<CR>
+" Close the current buffer and move to the previous one
+nmap <leader>bd :bp <BAR> bd #<CR> 
+nmap <leader>bD :bp <BAR> bd! #<CR> 
+
+nmap <leader>q :q<CR>
+nmap <leader>Q :q!<CR>
+
+" nnoremap <C-J> <C-W><C-J>
+" nnoremap <C-K> <C-W><C-K>
+" nnoremap <C-L> <C-W><C-L>
+" nnoremap <C-H> <C-W><C-H>
+
+nnoremap <leader>j <C-W><C-J>
+nnoremap <leader>k <C-W><C-K>
+nnoremap <leader>l <C-W><C-L>
+nnoremap <leader>h <C-W><C-H>
+
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
 " Show space, eol and tab characters
 " set listchars=space:.,eol:¬,tab:>·
 " set list
