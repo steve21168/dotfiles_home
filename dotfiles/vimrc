@@ -13,6 +13,9 @@ Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-commentary'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'rafi/awesome-vim-colorschemes'
+Plug 'airblade/vim-gitgutter'
+Plug 'ntpeters/vim-better-whitespace'
+
 
 call plug#end()
 
@@ -34,15 +37,11 @@ set softtabstop=2 " Set equal to tabspot
 
 " Themes "
 let g:airline_theme='simple'
-colorscheme afterglow
+colorscheme molokai
 
 " Key Mappings "
 :imap jj <ESC>
-
-:nnoremap <CR> ojj
-
 map <C-n> :NERDTreeToggle<CR>
-map <C-t> :FZF<CR>
 
 
 let g:airline_powerline_fonts = 1
@@ -57,12 +56,15 @@ nmap <leader>n :bnext<CR>
 nmap <leader>p :bprevious<CR>
 nmap <leader>bl :ls<CR>
 " Close the current buffer and move to the previous one
-nmap <leader>bd :bp <BAR> bd #<CR> 
-nmap <leader>bD :bp <BAR> bd! #<CR> 
+nmap <leader>bd :bp <BAR> bd #<CR>
+nmap <leader>bD :bp <BAR> bd! #<CR>
+nmap <leader>w :w<CR>
 nmap <leader>q :q<CR>
 nmap <leader>Q :q!<CR>
 nmap <leader>v :let @/ = ""<CR>
-nmap <leader>f :Ack
+nmap <leader>f :Ack<Space>
+nmap <leader>t :Files<CR>
+nmap <leader>b :Buffers<CR>
 nmap <leader>r :source ~/.vimrc<CR>
 
 if executable('ag')
