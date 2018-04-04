@@ -22,7 +22,6 @@ Plug 'rafi/awesome-vim-colorschemes'
 Plug 'airblade/vim-gitgutter'
 Plug 'ntpeters/vim-better-whitespace'
 
-
 call plug#end()
 
 " Basic Settings "
@@ -46,7 +45,7 @@ let g:airline_theme='simple'
 colorscheme molokai
 
 " Key Mappings "
-:imap jj <ESC>
+imap jj <ESC>
 map <C-n> :NERDTreeToggle<CR>
 
 
@@ -83,5 +82,8 @@ if has("clipboard")
 endif
 
 " Show space, eol and tab characters
-" set listchars=space:.,eol:¬,tab:>·
+set listchars=space:.,eol:¬,tab:>·
+nmap <leader>hc :set list<CR>
+nmap <leader>hC :set nolist<CR>
 " set list
+"
