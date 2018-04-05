@@ -32,7 +32,8 @@ set number
 set noshowmode
 set hlsearch
 set incsearch
-
+set updatetime=100 " Speed things up for vim gutter
+set backspace=indent,eol,start
 
 " Tabs and Spaces "
 set expandtab " Make tabs indent with spaces
@@ -61,11 +62,11 @@ nmap <leader>n :bnext<CR>
 nmap <leader>p :bprevious<CR>
 nmap <leader>bl :ls<CR>
 " Close the current buffer and move to the previous one
-nmap <leader>bd :bp <BAR> bd #<CR>
-nmap <leader>bD :bp <BAR> bd! #<CR>
+nmap <leader>q :bp <BAR> bd #<CR>
+nmap <leader>Q :bp <BAR> bd! #<CR>
 nmap <leader>w :w<CR>
-nmap <leader>q :q<CR>
-nmap <leader>Q :q!<CR>
+nmap <leader>x :q<CR>
+nmap <leader>X :q!<CR>
 nmap <leader>v :let @/ = ""<CR>
 nmap <leader>f :Ack<Space>
 nmap <leader>t :Files<CR>
