@@ -68,4 +68,4 @@ alias dt="cd ~/Desktop"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-source /Users/stevegoodstein/Desktop/new-stack/connect-stack/stack.sh
+[ -f ~/Desktop/new-stack/connect-stack/stack.sh ] && source ~/Desktop/new-stack/connect-stack/stack.sh

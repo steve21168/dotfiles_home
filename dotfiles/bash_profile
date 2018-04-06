@@ -1,7 +1,5 @@
 source ~/.profile
 
-export PATH=$PATH:/usr/local/go/bin
-
 alias dt='cd ~/Desktop'
 source ~/.kubectl_aliases
 
