@@ -1,4 +1,5 @@
 set nocompatible              " be iMproved, required
+filetype plugin indent on
 
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -21,6 +22,9 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'airblade/vim-gitgutter'
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'ervandew/supertab'
+Plug 'honza/vim-snippets'
+Plug 'SirVer/ultisnips'
 
 call plug#end()
 
@@ -86,5 +90,5 @@ endif
 set listchars=space:.,eol:¬,tab:>·
 nmap <leader>hc :set list<CR>
 nmap <leader>hC :set nolist<CR>
-" set list
 "
+set complete-=i
