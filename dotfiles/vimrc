@@ -66,11 +66,11 @@ nmap <leader>n :bnext<CR>
 nmap <leader>p :bprevious<CR>
 nmap <leader>bl :ls<CR>
 " Close the current buffer and move to the previous one
-nmap <leader>q :bp <BAR> bd #<CR>
-nmap <leader>Q :bp <BAR> bd! #<CR>
+nmap <leader>x :bp <BAR> bd #<CR>
+nmap <leader>X :bp <BAR> bd! #<CR>
 nmap <leader>w :w<CR>
-nmap <leader>x :q<CR>
-nmap <leader>X :q!<CR>
+nmap <leader>q :q<CR>
+nmap <leader>Q :q!<CR>
 nmap <leader>v :let @/ = ""<CR>
 nmap <leader>f :Ack<Space>
 nmap <leader>t :Files<CR>
