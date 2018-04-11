@@ -40,7 +40,7 @@ set updatetime=100 " Speed things up for vim gutter
 set backspace=indent,eol,start " Normal backspace
 set wildmenu
 set wildmode=longest:full,full
-
+set noswapfile
 
 " Tabs and Spaces "
 set expandtab " Make tabs indent with spaces
