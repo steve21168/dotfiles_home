@@ -1,9 +1,0 @@
-
-'atom-text-editor.vim-mode-plus.insert-mode':
-  'j j': 'vim-mode-plus:activate-normal-mode'
-
-'atom-text-editor':
-  'cmd-alt-right': 'window:focus-pane-on-right'
-  'cmd-alt-left': 'window:focus-pane-on-left'
-  'cmd-alt-up': 'window:focus-pane-above'
-  'cmd-alt-down': 'window:focus-pane-below'
