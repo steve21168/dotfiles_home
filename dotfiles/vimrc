@@ -25,6 +25,7 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'ervandew/supertab'
 Plug 'honza/vim-snippets'
 Plug 'SirVer/ultisnips'
+Plug 'tmux-plugins/vim-tmux-focus-events'
 
 call plug#end()
 
