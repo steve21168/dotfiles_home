@@ -26,6 +26,7 @@ Plug 'ervandew/supertab'
 Plug 'honza/vim-snippets'
 Plug 'SirVer/ultisnips'
 Plug 'tmux-plugins/vim-tmux-focus-events'
+Plug 'w0rp/ale'
 
 call plug#end()
 
@@ -44,6 +45,7 @@ set backspace=indent,eol,start " Normal backspace
 set wildmenu
 set wildmode=longest:full,full
 set noswapfile
+set autoread
 
 " Tabs and Spaces "
 set expandtab " Make tabs indent with spaces
