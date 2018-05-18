@@ -86,6 +86,7 @@ nmap <leader>t :Files<CR>
 nmap <leader>b :Buffers<CR>
 nmap <leader>r :source ~/.vimrc<CR>
 nmap <leader>gg :GitGutterAll<CR>
+nmap <leader>o <C-w>o
 
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
