@@ -47,6 +47,7 @@ set wildmenu
 set wildmode=longest:full,full
 set noswapfile
 set autoread
+set isk+=-
 
 " Tabs and Spaces "
 set expandtab " Make tabs indent with spaces
