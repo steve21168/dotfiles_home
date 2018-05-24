@@ -49,6 +49,7 @@ ZSH_THEME=""
 plugins=(
   zsh-syntax-highlighting
   zsh-autosuggestions
+  git
 )
 
 source $ZSH/oh-my-zsh.sh
