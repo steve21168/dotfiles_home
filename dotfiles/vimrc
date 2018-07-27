@@ -83,7 +83,7 @@ nmap <leader>w :w<CR>
 nmap <leader>q :q<CR>
 nmap <leader>Q :q!<CR>
 nmap <leader>v :let @/ = ""<CR>
-nmap <leader>f :Ack<Space>
+nmap <leader>f :Ack!<Space>
 nmap <leader>t :Files<CR>
 nmap <leader>b :Buffers<CR>
 nmap <leader>r :source ~/.vimrc<CR>
@@ -105,3 +105,5 @@ nmap <leader>hc :set list<CR>
 nmap <leader>hC :set nolist<CR>
 "
 set complete-=i
+
+let g:ale_enabled=0
