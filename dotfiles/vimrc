@@ -46,7 +46,7 @@ set backspace=indent,eol,start " Normal backspace
 set wildmenu
 set wildmode=longest:full,full
 set noswapfile
-set relativenumber
+set norelativenumber
 set autoread
 set isk+=-
 
