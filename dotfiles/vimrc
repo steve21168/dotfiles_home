@@ -28,6 +28,7 @@ Plug 'SirVer/ultisnips'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'w0rp/ale'
 Plug 'kana/vim-textobj-user' | Plug 'kana/vim-textobj-line'
+Plug 'sheerun/vim-polyglot'
 
 call plug#end()
 
@@ -40,6 +41,7 @@ set noshowmode
 set hlsearch
 set incsearch
 set smartcase
+set smartindent
 set ignorecase
 set updatetime=100 " Speed things up for vim gutter
 set backspace=indent,eol,start " Normal backspace
