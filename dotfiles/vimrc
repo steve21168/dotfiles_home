@@ -38,8 +38,8 @@ set encoding=utf-8
 syntax on
 set number
 set noshowmode
-set hlsearch
-set incsearch
+" set hlsearch
+" set incsearch
 set smartcase
 set smartindent
 set ignorecase
@@ -91,6 +91,7 @@ nmap <leader>b :Buffers<CR>
 nmap <leader>r :source ~/.vimrc<CR>
 nmap <leader>gg :GitGutterAll<CR>
 nmap <leader>o <C-w>o
+nnoremap <silent><expr> <Leader>h (&hls && v:hlsearch ? ':nohls' : ':set hls')."\n"
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>//gc<left><left><left>
 vnoremap <Leader>s "hy:%s/<C-r>h//gc<left><left><left>
 
