@@ -91,9 +91,11 @@ nmap <leader>b :Buffers<CR>
 nmap <leader>r :source ~/.vimrc<CR>
 nmap <leader>gg :GitGutterAll<CR>
 nmap <leader>o <C-w>o
-nnoremap <silent><expr> <Leader>h (&hls && v:hlsearch ? ':nohls' : ':set hls')."\n"
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>//gc<left><left><left>
 vnoremap <Leader>s "hy:%s/<C-r>h//gc<left><left><left>
+
+let hlstate=0
+nnoremap <leader>h :if (hlstate%2 == 0) \| nohlsearch \| else \| set hlsearch \| endif \| let hlstate=hlstate+1<cr>
 
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
