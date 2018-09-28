@@ -26,9 +26,9 @@ Plug 'ervandew/supertab'
 Plug 'honza/vim-snippets'
 Plug 'SirVer/ultisnips'
 Plug 'tmux-plugins/vim-tmux-focus-events'
-Plug 'w0rp/ale'
 Plug 'kana/vim-textobj-user' | Plug 'kana/vim-textobj-line'
 Plug 'sheerun/vim-polyglot'
+Plug 'vim-syntastic/syntastic'
 
 call plug#end()
 
@@ -40,6 +40,7 @@ set number
 set noshowmode
 " set hlsearch
 " set incsearch
+set ttimeoutlen=0
 set smartcase
 set smartindent
 set ignorecase
@@ -75,22 +76,22 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 
 " Buffer remaps
 set hidden " Allows to move between buffers while editing
-nmap <leader>n :bnext<CR>
-nmap <leader>p :bprevious<CR>
-nmap <leader>bl :ls<CR>
+nnoremap <leader>n :bnext<CR>
+nnoremap <leader>p :bprevious<CR>
+nnoremap <leader>bl :ls<CR>
 " Close the current buffer and move to the previous one
-nmap <leader>x :bp <BAR> bd #<CR>
-nmap <leader>X :bp <BAR> bd! #<CR>
-nmap <leader>w :w<CR>
-nmap <leader>q :q<CR>
-nmap <leader>Q :q!<CR>
-nmap <leader>v :let @/ = ""<CR>
-nmap <leader>f :Ack!<Space>
-nmap <leader>t :Files<CR>
-nmap <leader>b :Buffers<CR>
-nmap <leader>r :source ~/.vimrc<CR>
-nmap <leader>gg :GitGutterAll<CR>
-nmap <leader>o <C-w>o
+nnoremap <leader>x :bp <BAR> bd #<CR>
+nnoremap <leader>X :bp <BAR> bd! #<CR>
+nnoremap <leader>w :w<CR>
+nnoremap <leader>q :q<CR>
+nnoremap <leader>Q :q!<CR>
+nnoremap <leader>v :let @/ = ""<CR>
+nnoremap <leader>f :Ack!<Space>
+nnoremap <leader>t :Files<CR>
+nnoremap <leader>b :Buffers<CR>
+nnoremap <leader>r :source ~/.vimrc<CR>
+nnoremap <leader>gg :GitGutterAll<CR>
+nnoremap <leader>o <C-w>o
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>//gc<left><left><left>
 vnoremap <Leader>s "hy:%s/<C-r>h//gc<left><left><left>
 
@@ -110,4 +111,12 @@ nmap <leader>hC :set nolist<CR>
 "
 set complete-=i
 
-let g:ale_enabled=0
+" Vim syntastic
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
+let g:syntastic_ruby_checkers = ['rubocop']
+nnoremap <leader>sc :SyntasticCheck<CR>
+nnoremap <leader>sr :SyntasticReset<CR>
+nnoremap <leader>sx :lclose<CR>
