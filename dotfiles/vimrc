@@ -60,13 +60,16 @@ set shiftwidth=2 " Width when using > in normal mode
 set softtabstop=2 " Set equal to tabspot
 
 " Themes "
-let g:airline_theme='simple'
-colorscheme molokai
+let g:airline_theme='onedark'
+colorscheme onedark
 
 " Key Mappings "
 imap jj <ESC>
 map <C-n> :NERDTreeToggle<CR>
 
+
+
+let g:NERDTreeNodeDelimiter = "\u00a0"
 
 let g:airline_powerline_fonts = 1
 " Show buffers
