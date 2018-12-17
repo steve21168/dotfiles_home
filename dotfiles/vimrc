@@ -52,6 +52,7 @@ set noswapfile
 set norelativenumber
 set autoread
 set isk+=-
+set cursorline
 
 " Tabs and Spaces "
 set expandtab " Make tabs indent with spaces
