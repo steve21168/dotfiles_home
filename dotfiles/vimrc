@@ -30,6 +30,7 @@ Plug 'kana/vim-textobj-user' | Plug 'kana/vim-textobj-line'
 Plug 'sheerun/vim-polyglot'
 Plug 'vim-syntastic/syntastic'
 Plug 'mhinz/vim-signify'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 call plug#end()
 
@@ -70,7 +71,6 @@ imap jj <ESC>
 map <C-n> :NERDTreeToggle<CR>
 
 
-
 let g:NERDTreeNodeDelimiter = "\u00a0"
 
 let g:airline_powerline_fonts = 1
@@ -99,7 +99,6 @@ nnoremap <leader>gg :GitGutterAll<CR>
 nnoremap <leader>o <C-w>o
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>//gc<left><left><left>
 vnoremap <Leader>s "hy:%s/<C-r>h//gc<left><left><left>
-nmap <leader>qw ysiw""<CR>
 
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
@@ -129,3 +128,5 @@ let g:signify_realtime = 0
 let g:signify_update_on_focusgained = 1
 let g:signify_update_on_bufenter = 1
 let g:signify_update_on_winenter = 1
+
+set rtp+=$GOPATH/src/golang.org/x/lint/misc/vim
