@@ -68,10 +68,10 @@ colorscheme onedark
 
 " Key Mappings "
 imap jj <ESC>
-map <C-n> :NERDTreeToggle<CR>
+map <C-n>  :e.<CR>
 
 
-let g:NERDTreeNodeDelimiter = "\u00a0"
+let g:kERDTreeNodeDelimiter = "\u00a0"
 
 let g:airline_powerline_fonts = 1
 " Show buffers
@@ -83,7 +83,6 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 set hidden " Allows to move between buffers while editing
 nnoremap <leader>n :bnext<CR>
 nnoremap <leader>p :bprevious<CR>
-nnoremap <leader>bl :ls<CR>
 " Close the current buffer and move to the previous one
 nnoremap <leader>x :bp <BAR> bd #<CR>
 nnoremap <leader>X :bp <BAR> bd! #<CR>
@@ -99,6 +98,7 @@ nnoremap <leader>gg :GitGutterAll<CR>
 nnoremap <leader>o <C-w>o
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>//gc<left><left><left>
 vnoremap <Leader>s "hy:%s/<C-r>h//gc<left><left><left>
+nnoremap <Leader>h *#
 
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
@@ -128,5 +128,6 @@ let g:signify_realtime = 0
 let g:signify_update_on_focusgained = 1
 let g:signify_update_on_bufenter = 1
 let g:signify_update_on_winenter = 1
+
 
 set rtp+=$GOPATH/src/golang.org/x/lint/misc/vim
