@@ -99,6 +99,8 @@ nnoremap <leader>o <C-w>o
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>//gc<left><left><left>
 vnoremap <Leader>s "hy:%s/<C-r>h//gc<left><left><left>
 nnoremap <Leader>h *#
+nnoremap <leader>l :SyntasticCheck<CR>
+nnoremap <leader>lr :SyntasticReset<CR>
 
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
@@ -119,9 +121,6 @@ set complete-=i
 " Vim syntastic
 let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
 let g:syntastic_ruby_checkers = ['rubocop']
-nnoremap <leader>sc :SyntasticCheck<CR>
-nnoremap <leader>sr :SyntasticReset<CR>
-nnoremap <leader>sx :lclose<CR>
 
 let g:signify_vcs_list = [ 'git' ]
 let g:signify_realtime = 0

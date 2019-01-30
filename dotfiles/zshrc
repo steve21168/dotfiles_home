@@ -63,6 +63,7 @@ source ~/.kubectl_aliases
 
 # General Aliases
 alias dt="cd ~/Desktop"
+alias reload="source ~/.zshrc"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -87,3 +88,5 @@ if [ -f '/Users/stevengoodstein/google-cloud-sdk/completion.zsh.inc' ]; then . '
 export PATH="$PATH:$HOME/.rvm/bin"
 
 [[ -d $HOME/go ]] && export GOPATH=$HOME/go
+[[ -d "/User//Users/stevengoodstein/Qt5.5.0/5.5/clang_64/bin" ]] && export PATH="/Users/stevengoodstein/Qt5.5.0/5.5/clang_64/bin/:$PATH"
+export PATH="/usr/local/opt/elasticsearch@5.6/bin:$PATH"
