@@ -20,7 +20,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-commentary'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'rafi/awesome-vim-colorschemes'
-" Plug 'airblade/vim-gitgutter'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'ervandew/supertab'
 Plug 'honza/vim-snippets'
@@ -34,11 +33,12 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 call plug#end()
 
-" Basic Settings "
+" Native Vim Settings "
+colorscheme onedark
 let mapleader = " "
-set encoding=utf-8
 syntax on
 set number
+set encoding=utf-8
 set noshowmode
 " set hlsearch
 " set incsearch
@@ -57,79 +57,58 @@ set isk+=-
 set cursorline
 set splitbelow
 set splitright
-
-" Tabs and Spaces "
 set expandtab " Make tabs indent with spaces
 set tabstop=2 " Number of spaces for tab character
 set shiftwidth=2 " Width when using > in normal mode
 set softtabstop=2 " Set equal to tabspot
+set listchars=space:.,eol:¬,tab:>·
+set complete-=i
+set hidden " Allows to move between buffers while editing
 
-" Themes "
-let g:airline_theme='onedark'
-colorscheme onedark
+if has("clipboard")
+  set clipboard=unnamed " copy to the system clipboard
+endif
 
 " Key Mappings "
 imap jj <ESC>
 map <C-n> :edit.<CR>
-" map <C-n> :NERDTreeToggle<CR>
-
-
-let g:kERDTreeNodeDelimiter = "\u00a0"
-
-let g:airline_powerline_fonts = 1
-" Show buffers
-let g:airline#extensions#tabline#enabled = 1
-" Show just the filename
-let g:airline#extensions#tabline#fnamemod = ':t'
-
-" Buffer remaps
-set hidden " Allows to move between buffers while editing
+map <leader>f :Ack!<Space>
 nnoremap <leader>n :bnext<CR>
 nnoremap <leader>p :bprevious<CR>
-" Close the current buffer and move to the previous one
 nnoremap <leader>x :bp <BAR> bd #<CR>
 nnoremap <leader>X :bp <BAR> bd! #<CR>
 nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q<CR>
 nnoremap <leader>Q :q!<CR>
 nnoremap <leader>v :let @/ = ""<CR>
-nnoremap <leader>f :Ack!<Space>
 nnoremap <leader>t :Files<CR>
 nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>r :source ~/.vimrc<CR>
-nnoremap <leader>gg :GitGutterAll<CR>
 nnoremap <leader>o <C-w>o
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>//gc<left><left><left>
 vnoremap <Leader>s "hy:%s/<C-r>h//gc<left><left><left>
 nnoremap <Leader>h *#
-nnoremap <leader>l :SyntasticCheck<CR>
+nnoremap <leader>lc :SyntasticCheck<CR>
 nnoremap <leader>lr :SyntasticReset<CR>
+nmap <leader>hc :set list<CR> " Show listchars
+nmap <leader>hC :set nolist<CR>
 
+" Plugin Settings
+
+let g:airline_theme='onedark'
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
+let g:NERDTreeNodeDelimiter = "\u00a0"
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
-
-" yank to clipboard
-if has("clipboard")
-  set clipboard=unnamed " copy to the system clipboard
-endif
-
-" Show space, eol and tab characters
-set listchars=space:.,eol:¬,tab:>·
-nmap <leader>hc :set list<CR>
-nmap <leader>hC :set nolist<CR>
-"
-set complete-=i
-
-" Vim syntastic
 let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
 let g:syntastic_ruby_checkers = ['rubocop']
-
 let g:signify_vcs_list = [ 'git' ]
 let g:signify_realtime = 0
 let g:signify_update_on_focusgained = 1
 let g:signify_update_on_bufenter = 1
 let g:signify_update_on_winenter = 1
-
 
 set rtp+=$GOPATH/src/golang.org/x/lint/misc/vim
