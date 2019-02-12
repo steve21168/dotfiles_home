@@ -72,7 +72,7 @@ endif
 " Key Mappings "
 imap jj <ESC>
 map <C-n> :edit.<CR>
-map <leader>f :Ack!<Space>
+nnoremap <leader>f :Ack!<Space>
 nnoremap <leader>n :bnext<CR>
 nnoremap <leader>p :bprevious<CR>
 nnoremap <leader>x :bp <BAR> bd #<CR>
@@ -90,8 +90,13 @@ vnoremap <Leader>s "hy:%s/<C-r>h//gc<left><left><left>
 nnoremap <Leader>h *#
 nnoremap <leader>lc :SyntasticCheck<CR>
 nnoremap <leader>lr :SyntasticReset<CR>
+nnoremap <leader>uw gUiwe
+nnoremap <leader>uW gUiWe
+nnoremap <leader>lw guiwe
+nnoremap <leader>lW gUiWe
 nmap <leader>hc :set list<CR> " Show listchars
 nmap <leader>hC :set nolist<CR>
+
 
 " Plugin Settings
 
