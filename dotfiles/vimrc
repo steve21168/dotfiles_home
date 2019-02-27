@@ -87,6 +87,7 @@ nnoremap <leader>r :source ~/.vimrc<CR>
 nnoremap <leader>o <C-w>o
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>//gc<left><left><left>
 vnoremap <Leader>s "hy:%s/<C-r>h//gc<left><left><left>
+vnoremap // y/<C-R>"<CR>
 nnoremap <Leader>h *#
 nnoremap <leader>lc :SyntasticCheck<CR>
 nnoremap <leader>lr :SyntasticReset<CR>
@@ -110,6 +111,7 @@ if executable('ag')
 endif
 let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
 let g:syntastic_ruby_checkers = ['rubocop']
+let g:syntastic_javascript_checkers = ['eslint']
 let g:signify_vcs_list = [ 'git' ]
 let g:signify_realtime = 0
 let g:signify_update_on_focusgained = 1
