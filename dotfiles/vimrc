@@ -30,18 +30,20 @@ Plug 'sheerun/vim-polyglot'
 Plug 'vim-syntastic/syntastic'
 Plug 'mhinz/vim-signify'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'jeetsukumaran/vim-buffergator'
 
 call plug#end()
 
 " Native Vim Settings "
-colorscheme onedark
+colorscheme gruvbox
 let mapleader = " "
 syntax on
 set number
 set encoding=utf-8
 set noshowmode
-" set hlsearch
-" set incsearch
+set termguicolors
+set nohlsearch
+set noincsearch
 set ttimeoutlen=0
 set smartcase
 set smartindent
@@ -83,11 +85,13 @@ nnoremap <leader>Q :q!<CR>
 nnoremap <leader>v :let @/ = ""<CR>
 nnoremap <leader>t :Files<CR>
 nnoremap <leader>b :Buffers<CR>
+nnoremap <leader>cb :BuffergatorToggle<CR>
 nnoremap <leader>r :source ~/.vimrc<CR>
 nnoremap <leader>o <C-w>o
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>//gc<left><left><left>
 vnoremap <Leader>s "hy:%s/<C-r>h//gc<left><left><left>
-vnoremap // y/<C-R>"<CR>
+vnoremap <Leader>/ y/<C-R>"<CR>N
+nnoremap <Leader>/ *N
 nnoremap <Leader>h *#
 nnoremap <leader>lc :SyntasticCheck<CR>
 nnoremap <leader>lr :SyntasticReset<CR>
@@ -95,13 +99,14 @@ nnoremap <leader>uw gUiwe
 nnoremap <leader>uW gUiWe
 nnoremap <leader>lw guiwe
 nnoremap <leader>lW gUiWe
+nmap <leader>cq cs"'
 nmap <leader>hc :set list<CR> " Show listchars
 nmap <leader>hC :set nolist<CR>
 
 
 " Plugin Settings
 
-let g:airline_theme='onedark'
+let g:airline_theme='gruvbox'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
@@ -117,5 +122,7 @@ let g:signify_realtime = 0
 let g:signify_update_on_focusgained = 1
 let g:signify_update_on_bufenter = 1
 let g:signify_update_on_winenter = 1
+
+let g:buffergator_suppress_keymaps = 1
 
 set rtp+=$GOPATH/src/golang.org/x/lint/misc/vim
