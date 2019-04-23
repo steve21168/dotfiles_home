@@ -31,6 +31,8 @@ Plug 'vim-syntastic/syntastic'
 Plug 'mhinz/vim-signify'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'jeetsukumaran/vim-buffergator'
+Plug 'morhetz/gruvbox'
+Plug 'w0rp/ale'
 
 call plug#end()
 
@@ -103,7 +105,6 @@ nmap <leader>cq cs"'
 nmap <leader>hc :set list<CR> " Show listchars
 nmap <leader>hC :set nolist<CR>
 
-
 " Plugin Settings
 
 let g:airline_theme='gruvbox'
@@ -122,6 +123,7 @@ let g:signify_realtime = 0
 let g:signify_update_on_focusgained = 1
 let g:signify_update_on_bufenter = 1
 let g:signify_update_on_winenter = 1
+let g:ale_linters = {'javascript': ['eslint'], 'ruby': ['rubocop']}
 
 let g:buffergator_suppress_keymaps = 1
 

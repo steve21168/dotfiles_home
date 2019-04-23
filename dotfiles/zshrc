@@ -89,4 +89,10 @@ export PATH="/usr/local/opt/elasticsearch@5.6/bin:$PATH"
 
 [ -e "$HOME/.nvm" ] && export NVM_DIR="$HOME/.nvm" && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
- eval "$(pyenv init -)"
+export PATH=~/.npm-packages/bin:$PATH
+
+# tabtab source for slss package
+# uninstall by removing these lines or running `tabtab uninstall slss`
+[[ -f /Users/stevengoodstein/.npm-packages/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh ]] && . /Users/stevengoodstein/.npm-packages/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh
+
+eval "$(pyenv init -)"
