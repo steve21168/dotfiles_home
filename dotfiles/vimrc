@@ -142,3 +142,5 @@ let g:ale_linters = {'javascript': ['eslint'], 'ruby': ['rubocop']}
 let g:buffergator_suppress_keymaps = 1
 
 set rtp+=$GOPATH/src/golang.org/x/lint/misc/vim
+
+let g:ale_linters = { 'javascript': ['eslint'], 'ruby': ['rubocop'] }
