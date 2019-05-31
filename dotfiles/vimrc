@@ -68,42 +68,56 @@ set softtabstop=2 " Set equal to tabspot
 set listchars=space:.,eol:¬,tab:>·
 set complete-=i
 set hidden " Allows to move between buffers while editing
+set relativenumber
+set scrolloff=2
 
 if has("clipboard")
   set clipboard=unnamed " copy to the system clipboard
 endif
 
 " Key Mappings "
-imap jj <ESC>
+
 map <C-n> :edit.<CR>
-nnoremap <leader>f :Ack!<Space>
-nnoremap <leader>n :bnext<CR>
-nnoremap <leader>p :bprevious<CR>
-nnoremap <leader>x :bp <BAR> bd #<CR>
-nnoremap <leader>X :bp <BAR> bd! #<CR>
-nnoremap <leader>w :w<CR>
-nnoremap <leader>q :q<CR>
-nnoremap <leader>Q :q!<CR>
-nnoremap <leader>v :let @/ = ""<CR>
-nnoremap <leader>t :Files<CR>
+
+" Insert mappings
+imap jj <ESC>
+
+" Normal Mappings "
+nnoremap <leader>a viw~
 nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>cb :BuffergatorToggle<CR>
-nnoremap <leader>r :source ~/.vimrc<CR>
-nnoremap <leader>o <C-w>o
-nnoremap <Leader>s :%s/\<<C-r><C-w>\>//gc<left><left><left>
-vnoremap <Leader>s "hy:%s/<C-r>h//gc<left><left><left>
-vnoremap <Leader>/ y/<C-R>"<CR>N
-nnoremap <Leader>/ *N
+    nmap <leader>cq cs"'
+nnoremap <leader>f :Ack!<Space>
 nnoremap <Leader>h *#
+    nmap <leader>hc :set list<CR> " Show listchars
+    nmap <leader>hC :set nolist<CR>
 nnoremap <leader>lc :SyntasticCheck<CR>
-nnoremap <leader>lr :SyntasticReset<CR>
-nnoremap <leader>uw gUiwe
-nnoremap <leader>uW gUiWe
 nnoremap <leader>lw guiwe
 nnoremap <leader>lW gUiWe
-nmap <leader>cq cs"'
-nmap <leader>hc :set list<CR> " Show listchars
-nmap <leader>hC :set nolist<CR>
+nnoremap <leader>n :bnext<CR>
+nnoremap <leader>o <C-w>o
+nnoremap <leader>p :bprevious<CR>
+nnoremap <leader>Q :q!<CR>
+nnoremap <leader>q :q<CR>
+nnoremap <leader>r :source ~/.vimrc<CR>
+nnoremap <Leader>s :%s/\<<C-r><C-w>\>//gc<left><left><left>
+nnoremap <leader>t :Files<CR>
+nnoremap <leader>uw gUiwe
+nnoremap <leader>uW gUiWe
+nnoremap <leader>v :let @/ = ""<CR>
+nnoremap <leader>w :w<CR>
+nnoremap <leader>x :bp <BAR> bd #<CR>
+nnoremap <leader>X :bp <BAR> bd! #<CR>
+vnoremap <Leader>/ y/<C-R>"<CR>N
+nnoremap <Leader>/ *N
+nnoremap ,f <C-w>\|
+nnoremap ,s :sp<CR>
+nnoremap ,v :vsp<CR>
+nnoremap ,x <C-w>x
+nnoremap ,= <C-w>=
+
+" Visual mappings "
+vnoremap <Leader>s "hy:%s/<C-r>h//gc<left><left><left>
 
 " Plugin Settings
 
