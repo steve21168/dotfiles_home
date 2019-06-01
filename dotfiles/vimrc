@@ -71,6 +71,7 @@ set complete-=i
 set hidden " Allows to move between buffers while editing
 set relativenumber
 set scrolloff=2
+set inccommand=nosplit
 
 if has("clipboard")
   set clipboard=unnamed " copy to the system clipboard
