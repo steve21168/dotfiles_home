@@ -33,6 +33,7 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'jeetsukumaran/vim-buffergator'
 Plug 'morhetz/gruvbox'
 Plug 'w0rp/ale'
+Plug 'machakann/vim-highlightedyank'
 
 call plug#end()
 
@@ -76,24 +77,20 @@ if has("clipboard")
 endif
 
 " Key Mappings "
-
 map <C-n> :edit.<CR>
 
 " Insert mappings
 imap jj <ESC>
 
 " Normal Mappings "
-nnoremap <leader>a viw~
+nnoremap <leader>a gUiwe
+nnoremap <leader>A guiwe
 nnoremap <leader>b :Buffers<CR>
-nnoremap <leader>cb :BuffergatorToggle<CR>
-    nmap <leader>cq cs"'
+    nmap <leader>c cs"'
+    nmap <leader>C cs'"
 nnoremap <Leader>d *``cgn
 nnoremap <leader>f :Ack!<Space>
-nnoremap <leader>hc :set list<CR> " Show listchars
-nnoremap <leader>hC :set nolist<CR>
-nnoremap <leader>lc :SyntasticCheck<CR>
-nnoremap <leader>lw guiwe
-nnoremap <leader>lW gUiWe
+nnoremap <leader>h :set list!<CR> " Show listchars
 nnoremap <leader>n :bnext<CR>
 nnoremap <leader>o <C-w>o
 nnoremap <leader>p :bprevious<CR>
@@ -102,8 +99,6 @@ nnoremap <leader>q :q<CR>
 nnoremap <leader>r :source ~/.vimrc<CR>
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>//gc<left><left><left>
 nnoremap <leader>t :Files<CR>
-nnoremap <leader>uw gUiwe
-nnoremap <leader>uW gUiWe
 nnoremap <leader>v :let @/ = ""<CR>
 nnoremap <leader>w :w<CR>
 nnoremap <leader>x :bp <BAR> bd #<CR>
