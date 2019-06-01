@@ -103,7 +103,8 @@ nnoremap <leader>v :let @/ = ""<CR>
 nnoremap <leader>w :w<CR>
 nnoremap <leader>x :bp <BAR> bd #<CR>
 nnoremap <leader>X :bp <BAR> bd! #<CR>
-vnoremap <Leader>/ y/<C-R>"<CR>N
+nnoremap <leader>y "0p
+nnoremap <leader>z :ccl<CR>
 nnoremap <Leader>/ *N
 nnoremap ,f <C-w>\|
 nnoremap ,s :sp<CR>
@@ -113,6 +114,7 @@ nnoremap ,= <C-w>=
 
 " Visual mappings "
 vnoremap <Leader>s "hy:%s/<C-r>h//gc<left><left><left>
+vnoremap <Leader>/ y/<C-R>"<CR>N
 
 " Plugin Settings
 
