@@ -87,10 +87,10 @@ nnoremap <leader>a viw~
 nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>cb :BuffergatorToggle<CR>
     nmap <leader>cq cs"'
+nnoremap <Leader>d *``cgn
 nnoremap <leader>f :Ack!<Space>
-nnoremap <Leader>h *#
-    nmap <leader>hc :set list<CR> " Show listchars
-    nmap <leader>hC :set nolist<CR>
+nnoremap <leader>hc :set list<CR> " Show listchars
+nnoremap <leader>hC :set nolist<CR>
 nnoremap <leader>lc :SyntasticCheck<CR>
 nnoremap <leader>lw guiwe
 nnoremap <leader>lW gUiWe
