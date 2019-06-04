@@ -144,8 +144,6 @@ set rtp+=$GOPATH/src/golang.org/x/lint/misc/vim
 
 let g:ale_linters = { 'javascript': ['eslint'], 'ruby': ['rubocop'] }
 
-nnoremap <leader>q :call QuickfixToggle()<cr>
-
 "" Scripts ""
 let g:quickfix_is_open = 0
 function! QuickfixToggle()
