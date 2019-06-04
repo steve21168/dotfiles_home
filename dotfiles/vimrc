@@ -112,6 +112,7 @@ nnoremap ,s :sp<CR>
 nnoremap ,v :vsp<CR>
 nnoremap ,x <C-w>x
 nnoremap ,= <C-w>=
+nnoremap ,z :call QuickfixToggle()<CR>
 
 " Visual mappings "
 vnoremap <Leader>s "hy:%s/<C-r>h//gc<left><left><left>
@@ -142,3 +143,17 @@ let g:buffergator_suppress_keymaps = 1
 set rtp+=$GOPATH/src/golang.org/x/lint/misc/vim
 
 let g:ale_linters = { 'javascript': ['eslint'], 'ruby': ['rubocop'] }
+
+nnoremap <leader>q :call QuickfixToggle()<cr>
+
+"" Scripts ""
+let g:quickfix_is_open = 0
+function! QuickfixToggle()
+    if g:quickfix_is_open
+        cclose
+        let g:quickfix_is_open = 0
+    else
+        copen
+        let g:quickfix_is_open = 1
+    endif
+endfunction
