@@ -105,7 +105,6 @@ nnoremap <leader>w :w<CR>
 nnoremap <leader>x :bp <BAR> bd #<CR>
 nnoremap <leader>X :bp <BAR> bd! #<CR>
 nnoremap <leader>y "0p
-nnoremap <leader>z :ccl<CR>
 nnoremap <Leader>/ *N
 nnoremap ,f <C-w>\|
 nnoremap ,s :sp<CR>
