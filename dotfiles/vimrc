@@ -34,6 +34,7 @@ Plug 'jeetsukumaran/vim-buffergator'
 Plug 'morhetz/gruvbox'
 Plug 'w0rp/ale'
 Plug 'machakann/vim-highlightedyank'
+Plug 'milkypostman/vim-togglelist'
 
 call plug#end()
 
@@ -112,7 +113,7 @@ nnoremap ,s :sp<CR>
 nnoremap ,v :vsp<CR>
 nnoremap ,x <C-w>x
 nnoremap ,= <C-w>=
-nnoremap ,z :call QuickfixToggle()<CR>
+nnoremap ,c :call ToggleQuickfixList()<CR>
 
 " Visual mappings "
 vnoremap <Leader>s "hy:%s/<C-r>h//gc<left><left><left>
@@ -145,13 +146,5 @@ set rtp+=$GOPATH/src/golang.org/x/lint/misc/vim
 let g:ale_linters = { 'javascript': ['eslint'], 'ruby': ['rubocop'] }
 
 "" Scripts ""
-let g:quickfix_is_open = 0
-function! QuickfixToggle()
-    if g:quickfix_is_open
-        cclose
-        let g:quickfix_is_open = 0
-    else
-        copen
-        let g:quickfix_is_open = 1
-    endif
-endfunction
+
+let g:toggle_list_no_mappings = 0
