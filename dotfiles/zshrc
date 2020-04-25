@@ -65,6 +65,7 @@ source ~/.kubectl_aliases
 
 # General Aliases
 alias dt="cd ~/Desktop"
+alias ru="cd ~/ruby"
 alias reload="source ~/.zshrc"
 
 git-branch() {
@@ -76,15 +77,20 @@ git-branch() {
 [ -f ~/Desktop/new-stack/connect-stack/stack.sh ] && source ~/Desktop/new-stack/connect-stack/stack.sh
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/stevengoodstein/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/stevengoodstein/google-cloud-sdk/path.zsh.inc'; fi
+# if [ -f '/Users/stevengoodstein/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/stevengoodstein/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/stevengoodstein/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/stevengoodstein/google-cloud-sdk/completion.zsh.inc'; fi
+# if [ -f '/Users/stevengoodstein/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/stevengoodstein/google-cloud-sdk/completion.zsh.inc'; fi
+source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
+source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
+source <(kubectl completion zsh)
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 
 [[ -d $HOME/go ]] && export GOPATH=$HOME/go
+[[ -d $HOME/go ]] && export PATH=$PATH:$GOPATH/bin
+
 [[ -d "/User//Users/stevengoodstein/Qt5.5.0/5.5/clang_64/bin" ]] && export PATH="/Users/stevengoodstein/Qt5.5.0/5.5/clang_64/bin/:$PATH"
 
 export PATH="/usr/local/opt/elasticsearch@5.6/bin:$PATH"
@@ -92,6 +98,7 @@ export PATH="/usr/local/opt/elasticsearch@5.6/bin:$PATH"
 [ -e "$HOME/.nvm" ] && export NVM_DIR="$HOME/.nvm" && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 export PATH=~/.npm-packages/bin:$PATH
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 # tabtab source for slss package
 # uninstall by removing these lines or running `tabtab uninstall slss`

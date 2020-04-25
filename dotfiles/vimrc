@@ -26,21 +26,21 @@ Plug 'honza/vim-snippets'
 Plug 'SirVer/ultisnips'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'kana/vim-textobj-user' | Plug 'kana/vim-textobj-line'
-Plug 'sheerun/vim-polyglot'
 Plug 'vim-syntastic/syntastic'
 Plug 'mhinz/vim-signify'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'sheerun/vim-polyglot'
 Plug 'jeetsukumaran/vim-buffergator'
 Plug 'morhetz/gruvbox'
 Plug 'w0rp/ale'
 Plug 'machakann/vim-highlightedyank'
 Plug 'milkypostman/vim-togglelist'
-
+Plug 'tsandall/vim-rego'
 call plug#end()
 
 " Native Vim Settings "
 colorscheme gruvbox
-let mapleader = " "
+let mapleader = ' '
 syntax on
 set number
 set encoding=utf-8
@@ -105,14 +105,22 @@ nnoremap <leader>v :let @/ = ""<CR>
 nnoremap <leader>w :w<CR>
 nnoremap <leader>x :bp <BAR> bd #<CR>
 nnoremap <leader>X :bp <BAR> bd! #<CR>
-nnoremap <leader>y "0p
 nnoremap <Leader>/ *N
 nnoremap ,f <C-w>\|
 nnoremap ,s :sp<CR>
 nnoremap ,v :vsp<CR>
+nmap ,q cs"'<CR>
 nnoremap ,x <C-w>x
 nnoremap ,= <C-w>=
 nnoremap ,c :call ToggleQuickfixList()<CR>
+" Copy paste to system
+nnoremap ;p "+p
+nnoremap ;y "+y
+vnoremap ;p "+p
+vnoremap ;y "+y
+" Paste last yank
+nnoremap ,p "0p<CR>
+vnoremap ,p "0p<CR>
 
 " Visual mappings "
 vnoremap <Leader>s "hy:%s/<C-r>h//gc<left><left><left>
