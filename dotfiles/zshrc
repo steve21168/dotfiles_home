@@ -91,6 +91,8 @@ export PATH="$PATH:$HOME/.rvm/bin"
 [[ -d $HOME/go ]] && export GOPATH=$HOME/go
 [[ -d $HOME/go ]] && export PATH=$PATH:$GOPATH/bin
 
+GO111MODULE=auto
+
 [[ -d "/User//Users/stevengoodstein/Qt5.5.0/5.5/clang_64/bin" ]] && export PATH="/Users/stevengoodstein/Qt5.5.0/5.5/clang_64/bin/:$PATH"
 
 export PATH="/usr/local/opt/elasticsearch@5.6/bin:$PATH"
@@ -104,4 +106,8 @@ export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 # uninstall by removing these lines or running `tabtab uninstall slss`
 [[ -f /Users/stevengoodstein/.npm-packages/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh ]] && . /Users/stevengoodstein/.npm-packages/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh
 
+PIPENV_PYTHON=$PYENV_ROOT/shims/python
+
 eval "$(pyenv init -)"
+
+[[ $- == *i* ]] || return

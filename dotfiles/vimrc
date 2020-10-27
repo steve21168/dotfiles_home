@@ -1,4 +1,5 @@
 set nocompatible              " be iMproved, required
+
 filetype plugin indent on
 
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -36,10 +37,12 @@ Plug 'w0rp/ale'
 Plug 'machakann/vim-highlightedyank'
 Plug 'milkypostman/vim-togglelist'
 Plug 'tsandall/vim-rego'
+Plug 'arcticicestudio/nord-vim'
+
 call plug#end()
 
 " Native Vim Settings "
-colorscheme gruvbox
+colorscheme nord
 let mapleader = ' '
 syntax on
 set number
@@ -151,7 +154,5 @@ let g:buffergator_suppress_keymaps = 1
 set rtp+=$GOPATH/src/golang.org/x/lint/misc/vim
 
 let g:ale_linters = { 'javascript': ['eslint'], 'ruby': ['rubocop'] }
-
-"" Scripts ""
 
 let g:toggle_list_no_mappings = 0
