@@ -74,6 +74,8 @@ git-branch() {
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+export FZF_DEFAULT_COMMAND='ag --hidden -g .'
+
 [ -f ~/Desktop/new-stack/connect-stack/stack.sh ] && source ~/Desktop/new-stack/connect-stack/stack.sh
 
 # The next line updates PATH for the Google Cloud SDK.
