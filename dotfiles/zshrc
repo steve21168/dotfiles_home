@@ -72,6 +72,10 @@ git-branch() {
   git checkout $(git branch | fzf)
 }
 
+ssh-jenkins() {
+  ssh -t sgoodstein@ssh1-den "ssh -t medallia@10.207.192.$1" 'sudo -u jenkins -i'
+}
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export FZF_DEFAULT_COMMAND='ag --hidden -g .'
@@ -87,8 +91,7 @@ source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.in
 source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
 source <(kubectl completion zsh)
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
+export KUBECONFIG=/Users/stevengoodstein/.kube/config:/Users/stevengoodstein/.kube/medallia-kubeconfig
 
 [[ -d $HOME/go ]] && export GOPATH=$HOME/go
 [[ -d $HOME/go ]] && export PATH=$PATH:$GOPATH/bin
@@ -99,7 +102,9 @@ GO111MODULE=auto
 
 export PATH="/usr/local/opt/elasticsearch@5.6/bin:$PATH"
 
-[ -e "$HOME/.nvm" ] && export NVM_DIR="$HOME/.nvm" && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 export PATH=~/.npm-packages/bin:$PATH
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
@@ -110,6 +115,12 @@ export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 PIPENV_PYTHON=$PYENV_ROOT/shims/python
 
-eval "$(pyenv init -)"
-
 [[ $- == *i* ]] || return
+
+eval "$(pyenv init --path)"
+eval "$(rbenv init -)"
+# BEGIN ANSIBLE MANAGED BLOCK
+# export DOCKER_TLS_VERIFY="1"
+# export DOCKER_HOST="tcp://192.168.64.6:2376"
+# export DOCKER_CERT_PATH="/Users/stevengoodstein/.minikube/certs"
+# export MINIKUBE_ACTIVE_DOCKERD="minikube"

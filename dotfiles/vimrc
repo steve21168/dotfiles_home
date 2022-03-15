@@ -22,22 +22,20 @@ Plug 'tpope/vim-commentary'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'ntpeters/vim-better-whitespace'
-Plug 'ervandew/supertab'
 Plug 'honza/vim-snippets'
 Plug 'SirVer/ultisnips'
-Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'kana/vim-textobj-user' | Plug 'kana/vim-textobj-line'
-Plug 'vim-syntastic/syntastic'
 Plug 'mhinz/vim-signify'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'sheerun/vim-polyglot'
 Plug 'jeetsukumaran/vim-buffergator'
-Plug 'morhetz/gruvbox'
 Plug 'w0rp/ale'
 Plug 'machakann/vim-highlightedyank'
 Plug 'milkypostman/vim-togglelist'
 Plug 'tsandall/vim-rego'
 Plug 'arcticicestudio/nord-vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'unblevable/quick-scope'
 
 call plug#end()
 
@@ -117,13 +115,17 @@ nnoremap ,x <C-w>x
 nnoremap ,= <C-w>=
 nnoremap ,c :call ToggleQuickfixList()<CR>
 " Copy paste to system
-nnoremap ;p "+p
-nnoremap ;y "+y
-vnoremap ;p "+p
-vnoremap ;y "+y
+" nnoremap ;p "+p
+" nnoremap ;y "+y
+" vnoremap ;p "+p
+" vnoremap ;y "+y
 " Paste last yank
 nnoremap ,p "0p<CR>
 vnoremap ,p "0p<CR>
+nnoremap ,yf :let @+ = expand('%')<CR>
+nnoremap ,af :ALEFix<CR>
+nnoremap ,at :ALEToggle<CR>
+nnoremap ,ai :ALEInfo<CR>
 
 " Visual mappings "
 vnoremap <Leader>s "hy:%s/<C-r>h//gc<left><left><left>
@@ -135,19 +137,22 @@ let g:airline_theme='gruvbox'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+let g:airline_symbols.colnr = "\u33c7"
+
 let g:NERDTreeNodeDelimiter = "\u00a0"
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
-let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
-let g:syntastic_ruby_checkers = ['rubocop']
-let g:syntastic_javascript_checkers = ['eslint']
 let g:signify_vcs_list = [ 'git' ]
 let g:signify_realtime = 0
 let g:signify_update_on_focusgained = 1
 let g:signify_update_on_bufenter = 1
 let g:signify_update_on_winenter = 1
-let g:ale_linters = {'javascript': ['eslint'], 'ruby': ['rubocop']}
+let g:ale_linters = {'javascript': ['eslint'], 'ruby': ['rubocop'], 'python': ['flake8']}
+let g:ale_fixers = {'javascript': ['eslint'], 'ruby': ['rubocop'], 'python': ['flake8']}
 
 let g:buffergator_suppress_keymaps = 1
 
@@ -156,3 +161,26 @@ set rtp+=$GOPATH/src/golang.org/x/lint/misc/vim
 let g:ale_linters = { 'javascript': ['eslint'], 'ruby': ['rubocop'] }
 
 let g:toggle_list_no_mappings = 0
+
+""Cocvim
+ inoremap <silent><expr> <TAB>
+       \ pumvisible() ? "\<C-n>" :
+       \ <SID>check_back_space() ? "\<TAB>" :
+       \ coc#refresh()
+ inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+ function! s:check_back_space() abort
+   let col = col('.') - 1
+   return !col || getline('.')[col - 1]  =~# '\s'
+ endfunction
+
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
+""
+
+"" To avoid conflict with cocvim
+let g:UltiSnipsExpandTrigger = "<nop>"
+
+"" QuickScope
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+highlight QuickScopePrimary guifg='#afff5f' gui=underline ctermfg=155 cterm=underline
+highlight QuickScopeSecondary guifg='#5fffff' gui=underline ctermfg=81 cterm=underline
