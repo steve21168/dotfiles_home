@@ -1,15 +1,7 @@
 export ZSH=/Users/$(whoami)/.oh-my-zsh
 
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-#ZSH_THEME="fishy"
-ZSH_THEME=""
-
-# Set list of themes to load
-# Setting this variable when ZSH_THEME=random
-# cause zsh load theme from this variable instead of
-# looking in ~/.oh-my-zsh/themes/
-# An empty array have no effect
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+ZSH_THEME="oxide"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -55,22 +47,18 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 # fpath=(/usr/local/share/zsh-completions $fpath)
 #
-local ret_status="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )"
-PROMPT='%{$fg[cyan]%}%c%{$reset_color%} ${ret_status} '
+# local ret_status="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )"
+# PROMPT='%{$fg[cyan]%}%c%{$reset_color%} ${ret_status} '
 
 export TERM=xterm-256color
 
 # Use kube aliases
 source ~/.kubectl_aliases
+source ~/.git_aliases
 
 # General Aliases
 alias dt="cd ~/Desktop"
-alias ru="cd ~/ruby"
 alias reload="source ~/.zshrc"
-
-git-branch() {
-  git checkout $(git branch | fzf)
-}
 
 ssh-jenkins() {
   ssh -t sgoodstein@ssh1-den "ssh -t medallia@10.207.192.$1" 'sudo -u jenkins -i'
@@ -80,13 +68,6 @@ ssh-jenkins() {
 
 export FZF_DEFAULT_COMMAND='ag --hidden -g .'
 
-[ -f ~/Desktop/new-stack/connect-stack/stack.sh ] && source ~/Desktop/new-stack/connect-stack/stack.sh
-
-# The next line updates PATH for the Google Cloud SDK.
-# if [ -f '/Users/stevengoodstein/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/stevengoodstein/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-# if [ -f '/Users/stevengoodstein/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/stevengoodstein/google-cloud-sdk/completion.zsh.inc'; fi
 source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
 source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
 source <(kubectl completion zsh)
@@ -96,31 +77,6 @@ export KUBECONFIG=/Users/stevengoodstein/.kube/config:/Users/stevengoodstein/.ku
 [[ -d $HOME/go ]] && export GOPATH=$HOME/go
 [[ -d $HOME/go ]] && export PATH=$PATH:$GOPATH/bin
 
-GO111MODULE=auto
+bindkey -M menuselect '^[[Z' reverse-menu-complete
 
-[[ -d "/User//Users/stevengoodstein/Qt5.5.0/5.5/clang_64/bin" ]] && export PATH="/Users/stevengoodstein/Qt5.5.0/5.5/clang_64/bin/:$PATH"
-
-export PATH="/usr/local/opt/elasticsearch@5.6/bin:$PATH"
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-
-export PATH=~/.npm-packages/bin:$PATH
-export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
-
-# tabtab source for slss package
-# uninstall by removing these lines or running `tabtab uninstall slss`
-[[ -f /Users/stevengoodstein/.npm-packages/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh ]] && . /Users/stevengoodstein/.npm-packages/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh
-
-PIPENV_PYTHON=$PYENV_ROOT/shims/python
-
-[[ $- == *i* ]] || return
-
-eval "$(pyenv init --path)"
-eval "$(rbenv init -)"
-# BEGIN ANSIBLE MANAGED BLOCK
-# export DOCKER_TLS_VERIFY="1"
-# export DOCKER_HOST="tcp://192.168.64.6:2376"
-# export DOCKER_CERT_PATH="/Users/stevengoodstein/.minikube/certs"
-# export MINIKUBE_ACTIVE_DOCKERD="minikube"
+. /usr/local/opt/asdf/libexec/asdf.sh
